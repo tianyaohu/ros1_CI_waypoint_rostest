@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'tianyaoh501679/jenkins_cicd_learning:tortoisebot_ros1_waypoint_test'
-            args '-u root' // Run as root if necessary, or another user with sufficient permissions
+            args '-u root -v /tmp/.X11-unix:/tmp/.X11-unix  -e DISPLAY=$DISPLAY ' // Run as root if necessary, or another user with sufficient permissions
         }
     }
     stages {
